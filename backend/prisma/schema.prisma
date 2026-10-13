@@ -1,0 +1,143 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  admin
+  petugas
+  klien
+}
+
+enum StatusKunjungan {
+  menunggu
+  dijadwalkan
+  dalam_perjalanan
+  tiba
+  selesai
+  gagal
+}
+
+enum StatusKirim {
+  terkirim
+  gagal
+}
+
+model User {
+  id          Int      @id @default(autoincrement())
+  nama        String
+  email       String   @unique
+  password    String
+  role        Role
+  noTelepon   String?  @map("no_telepon")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  petugasProfil PetugasProfil?
+  notifikasi    Notifikasi[]
+
+  @@map("users")
+}
+
+model PetugasProfil {
+  id         Int     @id @default(autoincrement())
+  userId     Int     @unique @map("user_id")
+  areaKerja  String? @map("area_kerja")
+  latitude   Decimal? @db.Decimal(10, 7)
+  longitude  Decimal? @db.Decimal(10, 7)
+
+  user              User                @relation(fields: [userId], references: [id])
+  kualifikasiList   PetugasKualifikasi[]
+  kunjunganList     Kunjungan[]
+
+  @@map("petugas_profil")
+}
+
+model Kualifikasi {
+  id              Int    @id @default(autoincrement())
+  namaKualifikasi String @map("nama_kualifikasi")
+
+  petugasList     PetugasKualifikasi[]
+  jenisLayananList JenisLayanan[]
+
+  @@map("kualifikasi")
+}
+
+model PetugasKualifikasi {
+  id              Int @id @default(autoincrement())
+  petugasId       Int @map("petugas_id")
+  kualifikasiId   Int @map("kualifikasi_id")
+
+  petugas     PetugasProfil @relation(fields: [petugasId], references: [id])
+  kualifikasi Kualifikasi   @relation(fields: [kualifikasiId], references: [id])
+
+  @@map("petugas_kualifikasi")
+}
+
+model JenisLayanan {
+  id              Int     @id @default(autoincrement())
+  namaLayanan     String  @map("nama_layanan")
+  estimasiDurasi  Int     @map("estimasi_durasi")
+  bobotWaktu      Decimal @default(0.5) @map("bobot_waktu") @db.Decimal(3, 2)
+  bobotLokasi     Decimal @default(0.5) @map("bobot_lokasi") @db.Decimal(3, 2)
+  kualifikasiId   Int     @map("kualifikasi_id")
+
+  kualifikasi Kualifikasi @relation(fields: [kualifikasiId], references: [id])
+  kunjunganList Kunjungan[]
+
+  @@map("jenis_layanan")
+}
+
+model Klien {
+  id            Int      @id @default(autoincrement())
+  nama          String
+  noTelepon     String   @map("no_telepon")
+  alamat        String?
+  latitude      Decimal? @db.Decimal(10, 7)
+  longitude     Decimal? @db.Decimal(10, 7)
+  dataTambahan  Json?    @map("data_tambahan")
+
+  kunjunganList Kunjungan[]
+
+  @@map("klien")
+}
+
+model Kunjungan {
+  id              Int             @id @default(autoincrement())
+  klienId         Int             @map("klien_id")
+  petugasId       Int?            @map("petugas_id")
+  jenisLayananId  Int             @map("jenis_layanan_id")
+  jadwalMulai     DateTime        @map("jadwal_mulai")
+  skorPrioritas   Decimal?        @map("skor_prioritas") @db.Decimal(5, 2)
+  status          StatusKunjungan @default(menunggu)
+  alasanGagal     String?         @map("alasan_gagal")
+  kodeTiket       String          @unique @map("kode_tiket")
+  createdAt       DateTime        @default(now()) @map("created_at")
+  updatedAt       DateTime        @updatedAt @map("updated_at")
+
+  klien        Klien         @relation(fields: [klienId], references: [id])
+  petugas      PetugasProfil? @relation(fields: [petugasId], references: [id])
+  jenisLayanan JenisLayanan  @relation(fields: [jenisLayananId], references: [id])
+  notifikasi   Notifikasi[]
+
+  @@map("kunjungan")
+}
+
+model Notifikasi {
+  id               Int         @id @default(autoincrement())
+  userId           Int?        @map("user_id")
+  kunjunganId      Int         @map("kunjungan_id")
+  jenisNotifikasi  String      @map("jenis_notifikasi")
+  pesan            String
+  statusKirim      StatusKirim @default(terkirim) @map("status_kirim")
+  createdAt        DateTime    @default(now()) @map("created_at")
+
+  user      User?     @relation(fields: [userId], references: [id])
+  kunjungan Kunjungan @relation(fields: [kunjunganId], references: [id])
+
+  @@map("notifikasi")
+}
