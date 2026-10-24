@@ -1,0 +1,339 @@
+/* ========================================================
+   SAMBANG — Dashboard Styles
+   Matching Mockup 08 (Admin) & Mockup 11 (Petugas)
+   ======================================================== */
+
+.dashboard-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 80px; /* Space for mobile bottom bar */
+}
+
+.dashboard-content-wrapper {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Hero Header */
+.dashboard-hero-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.greeting-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.greeting-title {
+  margin: 0;
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 800;
+  color: var(--sambang-navy);
+  letter-spacing: -0.6px;
+}
+
+.wave-hand {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: wave 2s infinite;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.greeting-subtitle {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--sambang-muted);
+}
+
+.dashboard-date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid var(--sambang-border);
+  color: #475569;
+  font-size: 12.5px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(16, 43, 87, 0.03);
+}
+
+.dashboard-date-badge svg {
+  color: var(--sambang-blue);
+}
+
+/* Stats 4 Cards Grid */
+.dashboard-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+/* Featured Hero Visit (Petugas - Mockup 11) */
+.dashboard-featured-visit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 32px;
+  background: linear-gradient(135deg, #ffffff 0%, #f4f8ff 100%);
+  border: 1px solid #d7e6fc;
+}
+
+.featured-visit-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 600px;
+}
+
+.featured-badge-title {
+  font-size: 11px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--sambang-blue);
+}
+
+.featured-ticket-client {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--sambang-navy);
+}
+
+.featured-service-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.featured-service-name {
+  font-size: 13.5px;
+  font-weight: 650;
+  color: #475569;
+}
+
+.featured-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: #64748b;
+  margin: 4px 0 8px;
+}
+
+.featured-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.featured-meta-item svg {
+  color: var(--sambang-blue);
+}
+
+.featured-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.featured-visit-ill {
+  display: none;
+}
+
+@media (min-width: 860px) {
+  .featured-visit-ill {
+    display: block;
+  }
+}
+
+/* Section Blocks */
+.dashboard-section-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-block-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 750;
+  color: var(--sambang-navy);
+}
+
+/* Menu Cepat 5-col Grid */
+.menu-cepat-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+/* 2 Columns Bottom: Table + Activity Feed (Mockup 08) */
+.dashboard-two-cols-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.95fr);
+  gap: 20px;
+}
+
+.dashboard-card-panel {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.card-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-panel-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 750;
+  color: var(--sambang-navy);
+}
+
+.panel-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 650;
+  color: var(--sambang-blue);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.panel-action-link:hover {
+  color: var(--sambang-blue-dark);
+  transform: translateX(2px);
+}
+
+/* Activity Feed */
+.dashboard-activity-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.activity-icon-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex: 0 0 28px;
+  display: grid;
+  place-items: center;
+  margin-top: 2px;
+}
+
+.activity-icon-dot.blue { background: #edf4ff; color: #2463d5; }
+.activity-icon-dot.purple { background: #f5f3ff; color: #8b5cf6; }
+.activity-icon-dot.teal { background: #ecfdf5; color: #0d9488; }
+.activity-icon-dot.red { background: #fef2f2; color: #ef4444; }
+
+.activity-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.activity-text {
+  margin: 0;
+  font-size: 13px;
+  color: var(--sambang-text);
+  line-height: 1.45;
+}
+
+.activity-sub {
+  font-size: 11.5px;
+  color: var(--sambang-muted);
+}
+
+.status-kunjungan-summary {
+  padding: 10px 14px;
+  background: #f8fafc;
+  border-radius: 8px;
+  font-size: 13.5px;
+  color: var(--sambang-navy);
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .dashboard-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .menu-cepat-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dashboard-two-cols-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-content-wrapper {
+    padding: 20px 16px;
+    gap: 22px;
+  }
+
+  .dashboard-hero-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-cepat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .sambang-stat-card {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .stat-number {
+    font-size: 22px;
+  }
+}

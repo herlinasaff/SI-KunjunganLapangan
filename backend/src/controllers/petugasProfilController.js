@@ -74,11 +74,29 @@ const getPetugasProfilById = async (req, res) => {
 const updatePetugasProfil = async (req, res) => {
   try {
     const { id } = req.params
-    const { areaKerja, latitude, longitude } = req.body
+    const { areaKerja, latitude, longitude, kualifikasiIds } = req.body
+
+    // Kalau kualifikasiIds dikirim, hapus dulu relasi lama, baru buat yang baru
+    if (kualifikasiIds) {
+      await prisma.petugasKualifikasi.deleteMany({
+        where: { petugasId: parseInt(id) }
+      })
+
+      await prisma.petugasKualifikasi.createMany({
+        data: kualifikasiIds.map((kualifikasiId) => ({
+          petugasId: parseInt(id),
+          kualifikasiId
+        }))
+      })
+    }
 
     const data = await prisma.petugasProfil.update({
       where: { id: parseInt(id) },
-      data: { areaKerja, latitude, longitude }
+      data: { areaKerja, latitude, longitude },
+      include: {
+        user: { select: userSelectAman },
+        kualifikasiList: { include: { kualifikasi: true } }
+      }
     })
 
     res.json(data)

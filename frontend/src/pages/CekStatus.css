@@ -1,0 +1,432 @@
+/* ========================================================
+   SAMBANG — Cek Status Kunjungan
+   (Mengikuti Palet Login Master: Navy #102b57, Blue #2463d5)
+   ======================================================== */
+
+.status-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+  box-sizing: border-box;
+  background: #f5f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(16px, 3vw, 40px);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.status-mobile-card {
+  width: 100%;
+  max-width: 480px;
+  min-height: 580px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid var(--sambang-border);
+  border-radius: 20px;
+  box-shadow: 0 12px 36px rgba(16, 43, 87, 0.06);
+  padding: clamp(24px, 4vw, 36px) 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top bar */
+.status-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.status-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--sambang-blue);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.status-back-link:hover {
+  color: var(--sambang-blue-dark);
+  transform: translateX(-2px);
+}
+
+.status-brand-mini {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  background: var(--sambang-blue);
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(36, 99, 213, 0.2);
+}
+
+.status-mini-logo {
+  width: 24px;
+  height: 24px;
+}
+
+/* Common Header in Views */
+.status-badge-icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+}
+
+.status-badge-icon.blue {
+  background: var(--sambang-blue-light);
+  color: var(--sambang-blue);
+}
+
+.status-badge-icon.red {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.status-badge-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.status-main-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 750;
+  color: var(--sambang-navy);
+  letter-spacing: -0.6px;
+  text-align: center;
+}
+
+.status-main-desc {
+  margin: 10px auto 0;
+  max-width: 340px;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--sambang-muted);
+  text-align: center;
+}
+
+/* Search Form */
+.status-search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.status-info-note {
+  margin-top: 20px;
+}
+
+.status-bottom-illustration {
+  margin-top: auto;
+  padding-top: 20px;
+  width: 100%;
+}
+
+/* Not Found View (Mockup 06) */
+.status-not-found-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.status-not-found-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 360px;
+  margin-top: 28px;
+}
+
+.status-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--sambang-blue);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 10px;
+  transition: color 0.2s ease;
+}
+
+.status-contact-btn:hover {
+  color: var(--sambang-blue-dark);
+  text-decoration: underline;
+}
+
+/* Status Result View (Mockup 07 & 12) */
+.status-live-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--sambang-green-light);
+  border: 1px solid #bbf7d0;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.live-check-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--sambang-green);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  flex: 0 0 24px;
+}
+
+.live-status-text {
+  font-size: 13.5px;
+  font-weight: 750;
+  color: #065f46;
+}
+
+/* Card Box */
+.status-card-box {
+  background: #ffffff;
+  border: 1px solid var(--sambang-border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(16, 43, 87, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.status-client-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.client-avatar-badge {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border-radius: 50%;
+  background: var(--sambang-blue-light);
+  color: var(--sambang-blue);
+  display: grid;
+  place-items: center;
+}
+
+.client-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.client-ticket-code {
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.5px;
+  color: var(--sambang-blue);
+  font-family: monospace;
+}
+
+.client-name {
+  font-size: 16px;
+  font-weight: 750;
+  color: var(--sambang-navy);
+}
+
+.client-service {
+  font-size: 12px;
+  color: var(--sambang-muted);
+}
+
+/* Timeline */
+.status-timeline-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-left: 8px;
+}
+
+.timeline-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  position: relative;
+}
+
+.step-circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--sambang-border);
+  flex: 0 0 14px;
+  margin-top: 3px;
+  transition: all 0.2s ease;
+}
+
+.timeline-step.done .step-circle {
+  background: var(--sambang-green);
+}
+
+.timeline-step.active .step-circle {
+  background: var(--sambang-blue);
+  box-shadow: 0 0 0 4px rgba(36, 99, 213, 0.18);
+}
+
+.timeline-line {
+  width: 2px;
+  height: 22px;
+  background: #e2e8f0;
+  margin-left: 6px;
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.step-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--sambang-navy);
+}
+
+.timeline-step:not(.active):not(.done) .step-name {
+  color: #94a3b8;
+}
+
+.step-time {
+  font-size: 11px;
+  color: var(--sambang-muted);
+}
+
+/* Officer Row */
+.status-petugas-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #edf2f7;
+}
+
+.petugas-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.petugas-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--sambang-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.petugas-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.petugas-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #475569;
+  display: grid;
+  place-items: center;
+}
+
+.petugas-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--sambang-navy);
+}
+
+.petugas-call-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--sambang-blue);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(36, 99, 213, 0.22);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.petugas-call-button:hover {
+  background: var(--sambang-blue-dark);
+  transform: scale(1.05);
+}
+
+.status-detail-link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--sambang-border);
+  background: #ffffff;
+  color: var(--sambang-navy);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.status-detail-link-btn:hover {
+  background: var(--sambang-blue-light);
+  border-color: #c8d9ee;
+  color: var(--sambang-blue);
+}
+
+.status-check-another-btn {
+  margin-top: 14px;
+  border: 0;
+  background: transparent;
+  color: var(--sambang-blue);
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+}
+
+.status-check-another-btn:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .status-screen {
+    padding: 0;
+    background: #ffffff;
+  }
+
+  .status-mobile-card {
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    min-height: 100vh;
+    padding: 24px 18px;
+  }
+}

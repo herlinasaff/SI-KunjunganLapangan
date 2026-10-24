@@ -1,0 +1,342 @@
+/* =========================================
+   SAMBANG — LANDING PAGE
+   (Mengikuti palet & layout Login Master)
+   ========================================= */
+
+.landing-page,
+.landing-page * {
+  box-sizing: border-box;
+}
+
+.landing-page {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.95fr);
+  color: var(--sambang-text);
+  background: var(--sambang-white);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+/* =========================================
+   PANEL KIRI: HERO BIRU TUA (PERSIS LOGIN)
+   ========================================= */
+
+.landing-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: 36px clamp(32px, 6vw, 88px) 24px;
+  color: var(--sambang-white);
+  background:
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(63, 122, 222, 0.32),
+      transparent 30%
+    ),
+    linear-gradient(145deg, #102b57 0%, #174a91 100%);
+}
+
+.landing-hero::before,
+.landing-hero::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 50%;
+}
+
+.landing-hero::before {
+  width: 410px;
+  height: 410px;
+  right: -205px;
+  bottom: -130px;
+}
+
+.landing-hero::after {
+  width: 280px;
+  height: 280px;
+  right: -140px;
+  bottom: -65px;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 510px;
+  margin: 42px auto;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  color: var(--sambang-yellow);
+}
+
+.hero-content h1 {
+  margin: 0;
+  color: var(--sambang-white);
+  font-size: clamp(34px, 3.25vw, 48px);
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -1.7px;
+}
+
+.hero-content h1 span {
+  color: #9fc4ff;
+}
+
+.hero-description {
+  max-width: 420px;
+  margin: 22px 0 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.hero-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  margin-top: 30px;
+}
+
+.hero-footer {
+  position: relative;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   PANEL KANAN: PILIHAN AKSES (PUTIH BERSIH)
+   ========================================= */
+
+.landing-choices-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 60px clamp(28px, 4.5vw, 72px) 50px;
+  background: #ffffff;
+}
+
+.landing-choices-card {
+  width: 100%;
+  max-width: 440px;
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.choices-header {
+  margin-bottom: 8px;
+}
+
+.choices-eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--sambang-blue);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 2px;
+}
+
+.choices-header h2 {
+  margin: 0;
+  color: var(--sambang-navy);
+  font-size: clamp(24px, 2.4vw, 30px);
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+}
+
+.choices-header p {
+  margin: 10px 0 0;
+  color: var(--sambang-muted);
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.access-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.access-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+  border: 1px solid var(--sambang-border);
+  border-radius: 16px;
+  background: #ffffff;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 16px rgba(16, 43, 87, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.access-card:hover {
+  transform: translateY(-2px);
+  border-color: #c3dcfb;
+  box-shadow: 0 10px 24px rgba(16, 43, 87, 0.08);
+}
+
+.access-header-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.access-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border-radius: 50%;
+}
+
+.access-icon.blue {
+  color: var(--sambang-blue);
+  background: var(--sambang-blue-light);
+}
+
+.access-icon.purple {
+  color: #7855c5;
+  background: #f1eaff;
+}
+
+.access-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.access-copy {
+  flex: 1;
+}
+
+.access-copy h3 {
+  margin: 0 0 3px;
+  color: var(--sambang-navy);
+  font-size: 15px;
+  font-weight: 750;
+}
+
+.access-copy p {
+  margin: 0;
+  color: var(--sambang-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.access-arrow {
+  color: #94a3b8;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.access-card:hover .access-arrow {
+  color: var(--sambang-blue);
+  transform: translateX(3px);
+}
+
+.access-note {
+  color: #8496aa;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* =========================================
+   RESPONSIF
+   ========================================= */
+
+@media (max-width: 1100px) {
+  .landing-page {
+    grid-template-columns: minmax(0, 0.95fr) minmax(390px, 1.05fr);
+  }
+
+  .landing-hero {
+    padding-right: 38px;
+    padding-left: 38px;
+  }
+
+  .landing-choices-panel {
+    padding-right: 36px;
+    padding-left: 36px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(32px, 4vw, 42px);
+  }
+}
+
+@media (max-width: 760px) {
+  .landing-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  .landing-hero {
+    flex: 0 0 auto;
+    min-height: auto;
+    padding: 23px 24px 26px;
+  }
+
+  .hero-content {
+    margin: 27px 0 0;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(27px, 6.5vw, 35px);
+  }
+
+  .hero-benefits {
+    gap: 10px;
+    margin-top: 19px;
+  }
+
+  .hero-footer {
+    margin-top: 22px;
+    font-size: 9px;
+  }
+
+  .landing-choices-panel {
+    flex: 1 0 auto;
+    min-height: auto;
+    padding: 42px 24px 48px;
+  }
+
+  .landing-choices-card {
+    max-width: 440px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .landing-hero {
+    padding: 19px 19px 22px;
+  }
+
+  .landing-choices-panel {
+    padding-right: 19px;
+    padding-left: 19px;
+  }
+}

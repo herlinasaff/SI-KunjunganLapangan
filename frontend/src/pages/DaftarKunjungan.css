@@ -1,0 +1,464 @@
+/* ========================================================
+   SAMBANG — Daftar Kunjungan, Panel Samping & Modal
+   Matching Mockup 09, 10, and 13
+   ======================================================== */
+
+.daftar-kunjungan-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 80px;
+}
+
+.daftar-content-container {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Back link */
+.daftar-back-row {
+  display: flex;
+  align-items: center;
+}
+
+.daftar-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 650;
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.daftar-back-link:hover {
+  color: var(--sambang-blue);
+  transform: translateX(-2px);
+}
+
+/* Header Row */
+.daftar-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.daftar-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.daftar-title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--sambang-navy);
+  letter-spacing: -0.6px;
+}
+
+.daftar-subtitle {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--sambang-muted);
+}
+
+/* Filter Card (Mockup 09) */
+.daftar-filter-card {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.filter-search-box {
+  height: 44px;
+}
+
+.filter-dropdowns-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-select-wrap select {
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: 1px solid var(--sambang-border);
+  background: #ffffff;
+  color: #475569;
+  font-size: 12.5px;
+  font-weight: 600;
+  outline: 0;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.filter-select-wrap select:focus {
+  border-color: var(--sambang-blue);
+}
+
+.active-filter-badge {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--sambang-blue);
+  background: var(--sambang-blue-light);
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.filter-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  background: transparent;
+  color: #64748b;
+  font-size: 12.5px;
+  font-weight: 650;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.filter-reset-btn:hover {
+  color: var(--sambang-blue);
+  background: var(--sambang-blue-light);
+}
+
+/* Table overrides */
+.clickable-table-row {
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.clickable-table-row:hover td {
+  background: #f4f8fe !important;
+}
+
+.table-ticket-code {
+  font-family: monospace;
+  font-size: 12.5px;
+  font-weight: 750;
+  color: var(--sambang-blue);
+}
+
+.table-time-muted {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.table-action-dots {
+  border: 0;
+  background: transparent;
+  font-size: 18px;
+  font-weight: 700;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.table-action-dots:hover {
+  color: var(--sambang-blue);
+  background: var(--sambang-blue-light);
+}
+
+/* ========================================================
+   DRAWER / PANEL SAMPING (Mockup 10)
+   ======================================================== */
+.drawer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--sambang-border);
+}
+
+.drawer-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.drawer-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  background: transparent;
+  color: var(--sambang-blue);
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+  padding: 0;
+}
+
+.drawer-back-btn:hover {
+  text-decoration: underline;
+}
+
+.drawer-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--sambang-navy);
+}
+
+.drawer-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.drawer-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.drawer-ticket-code {
+  font-size: 13.5px;
+  font-weight: 750;
+  color: var(--sambang-navy);
+  background: #f1f5f9;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: monospace;
+}
+
+/* Client Card in Drawer */
+.drawer-client-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid #edf2f7;
+}
+
+.drawer-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--sambang-blue-light);
+  color: var(--sambang-blue);
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+}
+
+.drawer-client-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.drawer-client-name {
+  font-size: 15px;
+  font-weight: 750;
+  color: var(--sambang-navy);
+}
+
+.drawer-client-phone {
+  font-size: 12.5px;
+  color: var(--sambang-muted);
+}
+
+.drawer-client-addr {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.drawer-actions-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.drawer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.drawer-section-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 750;
+  color: var(--sambang-navy);
+}
+
+.drawer-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.drawer-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.info-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #64748b;
+  display: grid;
+  place-items: center;
+  flex: 0 0 28px;
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.info-text strong {
+  color: var(--sambang-navy);
+}
+
+.info-text span {
+  font-size: 11.5px;
+  color: var(--sambang-muted);
+}
+
+.info-catatan-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sambang-muted);
+  text-transform: uppercase;
+}
+
+.info-catatan-body {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #475569;
+}
+
+/* Timeline in Drawer */
+.drawer-timeline {
+  display: flex;
+  flex-direction: column;
+  padding-left: 6px;
+}
+
+.drawer-timeline-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.dt-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex: 0 0 12px;
+  margin-top: 3px;
+}
+
+.dt-circle.teal { background: #0d9488; }
+.dt-circle.blue { background: #2563eb; }
+.dt-circle.orange { background: #f59e0b; }
+
+.dt-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dt-content strong {
+  font-size: 12.5px;
+  color: var(--sambang-navy);
+}
+
+.dt-content span {
+  font-size: 11px;
+  color: var(--sambang-muted);
+}
+
+.drawer-timeline-line {
+  width: 2px;
+  height: 22px;
+  background: #e2e8f0;
+  margin-left: 5px;
+}
+
+/* ========================================================
+   MODAL BUAT KUNJUNGAN (Mockup 13)
+   ======================================================== */
+.klien-select-with-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.prioritas-radios-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 6px 0;
+}
+
+.prioritas-radio-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+}
+
+.prioritas-radio-label input[type="radio"] {
+  accent-color: var(--sambang-blue);
+  cursor: pointer;
+}
+
+.prioritas-radio-label.high input[type="radio"] {
+  accent-color: var(--sambang-red);
+}
+
+@media (max-width: 768px) {
+  .daftar-content-container {
+    padding: 20px 16px;
+  }
+
+  .form-two-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .sambang-drawer-panel {
+    max-width: 100%;
+  }
+}
